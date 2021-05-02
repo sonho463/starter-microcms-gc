@@ -1,8 +1,5 @@
 import React from "react"
-import { StaticImage, getImage } from "gatsby-plugin-image"
-import { graphql, useStaticQuery } from "gatsby"
-import { convertToBgImage } from "gbimage-bridge"
-import BackgroundImage from "gatsby-background-image"
+import Back from '../components/background'
 
 import SEO from '../components/seo'
 import Layout from '../components/layout'
@@ -10,25 +7,6 @@ import Layout from '../components/layout'
 import "../styles/global.css"
 
 export default function Home() {
-  const { placeholderImage } = useStaticQuery(
-    graphql`
-      query {
-        placeholderImage: file(relativePath: { eq: "home-bg.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(
-              width: 1000
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
-      }
-    `
-  )
-	// getImageでイメージデータを取得して
-  const image = getImage(placeholderImage)
-	// gatsby-background-imageで使えるように変換（ｖ３への対応）
-  const bgImage = convertToBgImage(image)
 
   return (
     <>
@@ -59,12 +37,7 @@ export default function Home() {
 			<Layout>
 
 
-      <BackgroundImage
-        Tag="section"
-        // Spread bgImage into BackgroundImage:
-        {...bgImage}
-        preserveStackingContext
-      >
+      <Back>
         <header className="masthead">
           <div class="overlay" />
           <div className="container">
@@ -82,7 +55,8 @@ export default function Home() {
         </header>
 
 
-      </BackgroundImage>
+      </Back>
+
       {/* Main Content*/}
       <div className="container">
         <div className="row">
