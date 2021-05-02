@@ -22,8 +22,9 @@ export default function Home() {
       }
     `
   )
-
+	// getImageでイメージデータを取得して
   const image = getImage(placeholderImage)
+	// gatsby-background-imageで使えるように変換（ｖ３への対応）
   const bgImage = convertToBgImage(image)
 
   return (
