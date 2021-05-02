@@ -4,6 +4,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { convertToBgImage } from "gbimage-bridge"
 import BackgroundImage from "gatsby-background-image"
 
+import SEO from '../components/seo'
+
 import "../styles/global.css"
 
 export default function Home() {
@@ -29,14 +31,14 @@ export default function Home() {
 
   return (
     <>
-      <meta charSet="utf-8" />
+      {/* <meta charSet="utf-8" />
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
       <meta name="description" content />
       <meta name="author" content />
-      <title>Clean Blog - Start Bootstrap Theme</title>
+      <title>Clean Blog - Start Bootstrap Theme</title> */}
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
       {/* Font Awesome icons (free version)*/}
       {/* Google fonts*/}
@@ -51,6 +53,7 @@ export default function Home() {
         type="text/css"
       />
 
+			<SEO />
       <nav
         className="navbar navbar-expand-lg navbar-light fixed-top"
         id="mainNav"
@@ -120,7 +123,7 @@ export default function Home() {
           </div>
         </header>
 
-			
+
       </BackgroundImage>
       {/* Main Content*/}
       <div className="container">
