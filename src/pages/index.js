@@ -1,8 +1,31 @@
 import React from "react"
+import { StaticImage, getImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
+import { convertToBgImage } from "gbimage-bridge"
+import BackgroundImage from "gatsby-background-image"
 
-import '../styles/global.css'
+import "../styles/global.css"
 
 export default function Home() {
+  const { placeholderImage } = useStaticQuery(
+    graphql`
+      query {
+        placeholderImage: file(relativePath: { eq: "home-bg.jpg" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 1000
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+    `
+  )
+
+  const image = getImage(placeholderImage)
+  const bgImage = convertToBgImage(image)
+
   return (
     <>
       <meta charSet="utf-8" />
@@ -27,7 +50,7 @@ export default function Home() {
         type="text/css"
       />
 
-			<nav
+      <nav
         className="navbar navbar-expand-lg navbar-light fixed-top"
         id="mainNav"
       >
@@ -74,24 +97,28 @@ export default function Home() {
         </div>
       </nav>
       {/* Page Header*/}
-      <header
-        className="masthead"
-        style={{ backgroundImage: 'url("assets/img/home-bg.jpg")' }}
+      <BackgroundImage
+        Tag="section"
+        // Spread bgImage into BackgroundImage:
+        {...bgImage}
+        preserveStackingContext
       >
-        <div className="overlay" />
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 col-md-10 mx-auto">
-              <div className="site-heading">
-                <h1>Clean Blog</h1>
-                <span className="subheading">
-                  A Blog Theme by Start Bootstrap
-                </span>
+        <header className="masthead">
+          <div class="overlay" />
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-md-10 mx-auto">
+                <div className="site-heading">
+                  <h1>Clean Blog</h1>
+                  <span className="subheading">
+                    A Blog Theme by Start Bootstrap
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
+      </BackgroundImage>
       {/* Main Content*/}
       <div className="container">
         <div className="row">
