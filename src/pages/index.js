@@ -82,7 +82,6 @@ export default function Home({ data }) {
         </div>
         <hr />
       </Layout>
-      <div className="container"></div>
     </>
   )
 }
