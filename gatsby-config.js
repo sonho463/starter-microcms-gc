@@ -1,5 +1,9 @@
 const path = require(`path`)
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `ほるもんTのブログ`,
@@ -9,6 +13,16 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
+		{
+      resolve: 'gatsby-source-microcms',
+      options: {
+        apiKey: process.env.MICROCMS_API_KEY,
+        serviceId: process.env.MICROCMS_SERVICE_ID,
+        apis: [{
+          endpoint: 'posts',
+        }],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
