@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <>
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
       <link
         href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
         rel="stylesheet"
@@ -22,7 +21,6 @@ export default function Home() {
         rel="stylesheet"
         type="text/css"
       />
-
 			<Seo />
 
 			<Layout>
