@@ -31,7 +31,6 @@ export default function Home() {
         <Seo pageTitle="Contact" pageDescription="これはコンタクトページです" />
 
         <Layout>
-          {/* Page Header*/}
           <Back>
             <header
               className="masthead"

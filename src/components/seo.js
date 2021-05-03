@@ -22,9 +22,7 @@ const SEO = (props) => {
 			? `${props.pageTitle} | ${site.siteMetadata.title}`
 			: site.siteMetadata.title
 	const description =
-		props.pageDescription
-			? `${props.pageDescription} | ${site.siteMetadata.description}`
-			: site.siteMetadata.description
+		props.pageDescription || site.siteMetadata.description
 
   return (
     <Helmet>
