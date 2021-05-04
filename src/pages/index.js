@@ -1,7 +1,6 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Back from "../components/background"
-import { Link } from "gatsby"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
@@ -54,7 +53,7 @@ export default function Home({ data }) {
                 return (
                   <>
                     <div key={node.id} className="post-preview">
-                      <Link to="{node.link}">
+                      <Link to={`/blog/posts/${node.link}`} >
                         <h2 className="post-title">{node.title}</h2>
                         <h3 className="post-subtitle">
                           {node.description}
