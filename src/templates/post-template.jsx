@@ -11,6 +11,7 @@ export default function Home({ data }) {
   const article = data.microcmsPosts.article
 	const author = data.microcmsPosts.author ? data.microcmsPosts.author : "Dそんほんす"
 
+
   return (
     <>
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -83,6 +84,7 @@ export default function Home({ data }) {
                       __html: article,
                     }}
                   />
+									
                 </div>
               </div>
             </div>

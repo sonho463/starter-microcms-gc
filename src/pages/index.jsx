@@ -1,5 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { htmlToText } from "html-to-text"
+
 import Back from "../components/background"
 
 import Seo from "../components/seo"
@@ -32,10 +34,8 @@ export default function Home({ data }) {
               <div className="row">
                 <div className="col-lg-8 col-md-10 mx-auto">
                   <div className="site-heading">
-                    <h1>Clean Blog</h1>
-                    <span className="subheading">
-                      A Blog Theme by Start Bootstrap
-                    </span>
+                    <h1>HorumonT's Blog</h1>
+                    <span className="subheading">Over40WebClub 学習会</span>
                   </div>
                 </div>
               </div>
@@ -48,21 +48,29 @@ export default function Home({ data }) {
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
               {data.allMicrocmsPosts.edges.map(({ node }) => {
-                const author = node.author || "そんほんす"
-								const description = node.description || "no description"
+                const author = node.author || "Dそんほんす"
+                const article = node.article || "no article"
+                const textData = htmlToText(article, {
+                  wordwrap: 50,
+                  tags: { a: { options: { ignoreHref: true } } },
+                  tags: { img: { format: "skip" } },
+                  limits: { ellipsis: "...", maxInputLength: 150 },
+                })
+								const description = node.description || textData
+
+
                 return (
                   <>
                     <div key={node.id} className="post-preview">
-                      <Link to={`/blog/posts/${node.link}`} >
+                      <Link to={`/blog/posts/${node.link}`}>
                         <h2 className="post-title">{node.title}</h2>
-                        <h3 className="post-subtitle">
-                          {description}
-                        </h3>
+                        <h3 className="post-subtitle">{description}</h3>
                       </Link>
                       <p className="post-meta">
                         Posted by
-                        <a href="#!">{author}</a><br/>
-                        {node.updatedAt}
+                        <a href="#!">{author}</a>
+                        <br />
+                        {node.updatedAtJP}
                       </p>
                     </div>
                     <hr />
@@ -94,9 +102,10 @@ export const query = graphql`
           id
           link
           author
-					updatedAt
-					description
-					article
+          updatedAtJP: updatedAt(formatString: "YYYY/MM/DD")
+          updatedAt
+          description
+          article
         }
       }
     }
