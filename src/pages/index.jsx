@@ -56,7 +56,7 @@ export default function Home({ data }) {
                       <Link to={`/blog/posts/${node.link}`} >
                         <h2 className="post-title">{node.title}</h2>
                         <h3 className="post-subtitle">
-                          {node.description}
+                          {description}
                         </h3>
                       </Link>
                       <p className="post-meta">
