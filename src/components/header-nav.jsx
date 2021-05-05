@@ -36,6 +36,9 @@ const HeaderNav = () => {
             <li className="nav-item">
               <Link to="/post">PostPage</Link>
             </li>
+            <li className="nav-item">
+              <Link to="/test">TestPage</Link>
+            </li>
           </ul>
         </div>
       </div>

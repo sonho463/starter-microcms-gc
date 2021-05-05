@@ -11,7 +11,7 @@ const BgImage = ({ children }) => {
         placeholderImage: file(relativePath: { eq: "home-bg.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 1000
+              width: 200
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )

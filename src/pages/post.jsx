@@ -93,7 +93,7 @@ export default function Home({ data }) {
           <hr />
         </>
       </Layout>
-    </>
+			</>
   )
 }
 
@@ -106,6 +106,9 @@ export const query = graphql`
       link
       article
 			author
+			eye_catch {
+				url
+			}
       category {
         category
         categorySlug

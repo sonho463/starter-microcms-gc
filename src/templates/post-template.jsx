@@ -4,13 +4,16 @@ import { graphql } from "gatsby"
 import Back from "../components/background"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
+import MicroCmsImage from "../components/microcms-img"
 
 import "../styles/global.css"
 
 export default function Home({ data }) {
   const article = data.microcmsPosts.article
-	const author = data.microcmsPosts.author ? data.microcmsPosts.author : "Dそんほんす"
-
+  const author = data.microcmsPosts.author
+    ? data.microcmsPosts.author
+    : "Dそんほんす"
+  // const url = data.microcmsPosts.eye_catch.url ? data.microcmsPosts.eye_catch.url : "src/images/post-bg.jpg"
 
   return (
     <>
@@ -74,6 +77,13 @@ export default function Home({ data }) {
               </div>
             </header>
           </Back>
+          <div className="container">
+            <MicroCmsImage
+              url={data.microcmsPosts.eye_catch.url}
+              width="w=300"
+							conpress="auto=compress"
+            />
+          </div>
           {/* Post Content*/}
           <article>
             <div className="container">
@@ -84,7 +94,6 @@ export default function Home({ data }) {
                       __html: article,
                     }}
                   />
-									
                 </div>
               </div>
             </div>
@@ -104,7 +113,10 @@ export const query = graphql`
       updatedAt
       link
       article
-			author
+      author
+      eye_catch {
+        url
+      }
       category {
         category
         categorySlug

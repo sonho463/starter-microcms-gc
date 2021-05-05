@@ -51,10 +51,9 @@ export default function Home({ data }) {
                 const author = node.author || "Dそんほんす"
                 const article = node.article || "no article"
                 const textData = htmlToText(article, {
-                  wordwrap: 50,
                   tags: { a: { options: { ignoreHref: true } } },
                   tags: { img: { format: "skip" } },
-                  limits: { ellipsis: "...", maxInputLength: 150 },
+                  limits: { ellipsis: "...", maxInputLength: 300 },
                 })
 								const description = node.description || textData
 
