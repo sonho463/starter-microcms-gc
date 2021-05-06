@@ -80,7 +80,7 @@ export default function Home({ data }) {
           <div className="container">
             <MicroCmsImage
               url={data.microcmsPosts.eye_catch.url}
-              width="w=300"
+							width="w=300"
 							compress="auto=compress"
 							fill="fill=blur"
             />
