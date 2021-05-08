@@ -57,7 +57,6 @@ export default function Home({ data }) {
                 })
 								const description = node.description || textData
 
-
                 return (
                   <>
                     <div key={node.id} className="post-preview">
