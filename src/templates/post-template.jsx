@@ -17,8 +17,11 @@ export default function Home({ data }) {
 
 	const EyeCatch = styled.div`
 		position: absolute;
-		top: 0;
-	`
+		top: 0;	`
+
+	let img_template = new Image();
+	img_template.src=data.microcmsPosts.eye_catch.url
+	const width_template = img_template.naturalWidth
 
   return (
     <>
@@ -70,6 +73,7 @@ export default function Home({ data }) {
 									url={data.microcmsPosts.eye_catch.url}
 									compress="auto=compress"
 									format="auto=format"
+									ar="ar=2:1&fit=crop&fp-y=0.5"
 								/>
 							</EyeCatch>
             <div className="overlay" />
@@ -78,7 +82,6 @@ export default function Home({ data }) {
                 <div className="col-lg-8 col-md-10 mx-auto">
                   <div className="post-heading">
                     <h1>{data.microcmsPosts.title}</h1>
-                    <h2 className="subheading">カテゴリ</h2>
                     <span className="meta">
                       Posted by
                       <a href="#!">{author}</a>
