@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
+import styled from "styled-components"
 
-import Back from "../components/background"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 import MicroCmsImage from "../components/microcms-img"
@@ -14,6 +14,11 @@ export default function Home({ data }) {
     ? data.microcmsPosts.author
     : "Dそんほんす"
   // const url = data.microcmsPosts.eye_catch.url ? data.microcmsPosts.eye_catch.url : "src/images/post-bg.jpg"
+
+	const EyeCatch = styled.div`
+		position: absolute;
+		top: 0;
+	`
 
   return (
     <>
@@ -58,21 +63,20 @@ export default function Home({ data }) {
           />
 
           {/* <Back> */}
-          <header className="masthead">
+          <header className="masthead" style={{position:"relative",overflow:"hidden"}}>
+              <EyeCatch>
+								{/* １つ目のpropsは必ずurl それ以外は順不同でOK */}
+								<MicroCmsImage
+									url={data.microcmsPosts.eye_catch.url}
+									compress="auto=compress"
+									format="auto=format"
+								/>
+							</EyeCatch>
             <div className="overlay" />
             <div className="container">
               <div className="row">
                 <div className="col-lg-8 col-md-10 mx-auto">
                   <div className="post-heading">
-                    <MicroCmsImage
-                      url={data.microcmsPosts.eye_catch.url}
-                      width="w=300"
-                      compress="auto=compress"
-                      fill="fill=blur"
-											format="auto=format"
-											darken="blend-mode=darken"
-											darkenColor="blend=b0c4de"
-                    />
                     <h1>{data.microcmsPosts.title}</h1>
                     <h2 className="subheading">カテゴリ</h2>
                     <span className="meta">
