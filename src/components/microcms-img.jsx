@@ -16,16 +16,12 @@ export default function MicroCmsImg(props) {
 				param=`${param}&${a}`
 			}
 		}
-
-
 	})
 
   return (
     <>
-      <h1>image</h1>
-			<p>{url}{width}{compress}{fill}</p>
-      <img src={`${url}?${width}&${compress}&${fill}`} alt="" />
-			<p>{url + param}</p>
+      {/* <h1>eye_catch</h1>
+			<p>{url + param}</p> */}
 			<img src={url+param} alt=""/>
     </>
   )

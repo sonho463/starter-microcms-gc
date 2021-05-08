@@ -57,34 +57,35 @@ export default function Home({ data }) {
             pageDescription="これは投稿ページ。次にcreatePageで動的に生成します"
           />
 
-          <Back>
-            <header className="masthead">
-              <div className="overlay" />
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-8 col-md-10 mx-auto">
-                    <div className="post-heading">
-                      <h1>{data.microcmsPosts.title}</h1>
-                      <h2 className="subheading">カテゴリ</h2>
-                      <span className="meta">
-                        Posted by
-                        <a href="#!">{author}</a>
-                        on {data.microcmsPosts.updatedAtJP}
-                      </span>
-                    </div>
+          {/* <Back> */}
+          <header className="masthead">
+            <div className="overlay" />
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-8 col-md-10 mx-auto">
+                  <div className="post-heading">
+                    <MicroCmsImage
+                      url={data.microcmsPosts.eye_catch.url}
+                      width="w=300"
+                      compress="auto=compress"
+                      fill="fill=blur"
+											format="auto=format"
+											darken="blend-mode=darken"
+											darkenColor="blend=b0c4de"
+                    />
+                    <h1>{data.microcmsPosts.title}</h1>
+                    <h2 className="subheading">カテゴリ</h2>
+                    <span className="meta">
+                      Posted by
+                      <a href="#!">{author}</a>
+                      on {data.microcmsPosts.updatedAtJP}
+                    </span>
                   </div>
                 </div>
               </div>
-            </header>
-          </Back>
-          <div className="container">
-            <MicroCmsImage
-              url={data.microcmsPosts.eye_catch.url}
-							width="w=300"
-							compress="auto=compress"
-							fill="fill=blur"
-            />
-          </div>
+            </div>
+          </header>
+          {/* </Back> */}
           {/* Post Content*/}
           <article>
             <div className="container">
