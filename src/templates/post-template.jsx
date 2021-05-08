@@ -19,10 +19,6 @@ export default function Home({ data }) {
 		position: absolute;
 		top: 0;	`
 
-	let img_template = new Image();
-	img_template.src=data.microcmsPosts.eye_catch.url
-	const width_template = img_template.naturalWidth
-
   return (
     <>
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
