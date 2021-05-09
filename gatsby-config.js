@@ -13,7 +13,16 @@ module.exports = {
   },
   /* Your site config here */
   plugins: [
-		`gatsby-plugin-styled-components`,
+		{
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Lora`,
+          `pen+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800` // you can also specify font weights and styles
+        ],
+        display: 'swap'
+      }
+    },
     {
       resolve: "gatsby-source-microcms",
       options: {
@@ -43,5 +52,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
+		`gatsby-plugin-styled-components`,
+
   ],
 }
