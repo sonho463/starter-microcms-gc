@@ -4,6 +4,7 @@ import { htmlToText } from "html-to-text"
 import styled from "styled-components"
 
 import Back from "../components/background"
+import Pager from "../components/pager"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
@@ -48,6 +49,15 @@ export default function Home({ data, pageContext }) {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
+              {/* Pager*/}
+              <div className="clearfix">
+                <Pager
+                  currentPage={pageContext.currentPage}
+                  isFirst={pageContext.isFirst}
+                  isLast={pageContext.isLast}
+                />
+              </div>
+
               {data.allMicrocmsPosts.edges.map(({ node }) => {
                 const author = node.author || "Dそんほんす"
                 const article = node.article || "no article"
@@ -78,33 +88,11 @@ export default function Home({ data, pageContext }) {
               })}
               <hr />
               {/* Pager*/}
-              <div className="clearfix">
-                <PageNation>
-
-                  {!pageContext.isLast && (
-                    <Link
-                      className="btn btn-primary float-right"
-                      to={`/${pageContext.currentPage + 1}/`}
-                      rel="prev"
-                    >
-                      ←　Old
-                    </Link>
-                  )}
-									{!pageContext.isFirst && (
-                    <Link
-                      className="btn btn-primary float-right"
-                      to={
-                        pageContext.currentPage === 2
-                          ? `/`
-                          : `/${pageContext.currentPage - 1}/`
-                      }
-                      rel="new"
-                    >
-                      New →
-                    </Link>
-                  )}
-                </PageNation>
-              </div>
+              <Pager
+                currentPage={pageContext.currentPage}
+                isFirst={pageContext.isFirst}
+                isLast={pageContext.isLast}
+              />
             </div>
           </div>
         </div>
@@ -113,12 +101,6 @@ export default function Home({ data, pageContext }) {
     </>
   )
 }
-
-const PageNation = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
