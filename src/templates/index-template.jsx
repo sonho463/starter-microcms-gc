@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { htmlToText } from "html-to-text"
+import styled from "styled-components"
 
 import Back from "../components/background"
 
@@ -9,7 +10,7 @@ import Layout from "../components/layout"
 
 import "../styles/global.css"
 
-export default function Home({ data }) {
+export default function Home({ data, pageContext }) {
   return (
     <>
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -55,7 +56,7 @@ export default function Home({ data }) {
                   tags: { img: { format: "skip" } },
                   limits: { ellipsis: "...", maxInputLength: 300 },
                 })
-								const description = node.description || textData
+                const description = node.description || textData
 
                 return (
                   <>
@@ -78,9 +79,31 @@ export default function Home({ data }) {
               <hr />
               {/* Pager*/}
               <div className="clearfix">
-                <a className="btn btn-primary float-right" href="#!">
-                  Older Posts →
-                </a>
+                <PageNation>
+
+                  {!pageContext.isLast && (
+                    <Link
+                      className="btn btn-primary float-right"
+                      to={`/${pageContext.currentPage + 1}/`}
+                      rel="prev"
+                    >
+                      ←　Old
+                    </Link>
+                  )}
+									{!pageContext.isFirst && (
+                    <Link
+                      className="btn btn-primary float-right"
+                      to={
+                        pageContext.currentPage === 2
+                          ? `/`
+                          : `/${pageContext.currentPage - 1}/`
+                      }
+                      rel="new"
+                    >
+                      New →
+                    </Link>
+                  )}
+                </PageNation>
               </div>
             </div>
           </div>
@@ -91,9 +114,19 @@ export default function Home({ data }) {
   )
 }
 
+const PageNation = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`
+
 export const query = graphql`
-  query {
-    allMicrocmsPosts(sort: { order: DESC, fields: updatedAt }) {
+  query($skip: Int!, $limit: Int!) {
+    allMicrocmsPosts(
+      sort: { order: DESC, fields: updatedAt }
+      skip: $skip
+      limit: $limit
+    ) {
       edges {
         node {
           title
