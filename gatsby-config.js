@@ -17,8 +17,9 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Lora`,
-          `pen+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800` // you can also specify font weights and styles
+          `Lora:400,400italic,700,700italic`,
+          `pen+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800`,
+
         ],
         display: 'swap'
       }
