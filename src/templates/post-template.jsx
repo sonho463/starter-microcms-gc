@@ -19,6 +19,9 @@ export default function Home({ data }) {
 		position: absolute;
 		top: 0;	`
 
+	// prev,next,currentPageの取得
+
+
   return (
     <>
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -39,7 +42,6 @@ export default function Home({ data }) {
             pageDescription="これは投稿ページ。次にcreatePageで動的に生成します"
           />
 
-          {/* <Back> */}
           <header className="masthead" style={{position:"relative",overflow:"hidden"}}>
               <EyeCatch>
 								{/* １つ目のpropsは必ずurl それ以外は順不同でOK */}

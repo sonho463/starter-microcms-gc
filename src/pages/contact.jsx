@@ -1,12 +1,35 @@
 import React from "react"
-import Back from "../components/background"
+import { getImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
+import { convertToBgImage } from "gbimage-bridge"
+import BackgroundImage from "gatsby-background-image"
 
 import Seo from "../components/seo"
 import Layout from "../components/layout"
-
 import "../styles/global.css"
 
 export default function Home() {
+	const { placeholderImage } = useStaticQuery(
+    graphql`
+      query {
+        placeholderImage: file(relativePath: { eq: "contact-bg.jpg" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+    `
+  )
+
+  // getImageでイメージデータを取得して
+  const image = getImage(placeholderImage)
+  // gatsby-background-imageで使えるように変換（ｖ３への対応）
+  const bgImage = convertToBgImage(image)
+
   return (
     <>
       <>
@@ -17,10 +40,16 @@ export default function Home() {
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         {/* Font Awesome icons (free version)*/}
 
-        <Seo pageTitle="Contact" pageDescription="これはコンタクトページです" />
+        <Seo pageTitle="About" pageDescription="これはアバウトページです" />
 
         <Layout>
-          <Back>
+          {/* Page Header*/}
+          <BackgroundImage
+            Tag="section"
+            // Spread bgImage into BackgroundImage:
+            {...bgImage}
+            preserveStackingContext
+          >
             <header
               className="masthead"
               style={{ backgroundImage: 'url("assets/img/about-bg.jpg")' }}
@@ -37,7 +66,7 @@ export default function Home() {
                 </div>
               </div>
             </header>
-          </Back>
+          </BackgroundImage>
           {/* Main Content*/}
           <>
             {/* Main Content*/}

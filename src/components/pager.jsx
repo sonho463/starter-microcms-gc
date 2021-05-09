@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 export default function Pager(props) {
-  const { currentPage, isLast, isFirst } = props
+  const { currentPage, isLast, isFirst,prev, next } = props
 
   return (
     <>
@@ -12,7 +12,7 @@ export default function Pager(props) {
           {!isLast && (
             <Link
               className="btn btn-primary float-right"
-              to={`/${currentPage + 1}/`}
+              to={`/${prev}/`}
               rel="prev"
             >
               ←　Old
@@ -21,7 +21,7 @@ export default function Pager(props) {
           {!isFirst && (
             <Link
               className="btn btn-primary float-right"
-              to={currentPage === 2 ? `/` : `/${currentPage - 1}/`}
+              to={currentPage === 2 ? `/` : `/${next}/`}
               rel="next"
             >
               New →
@@ -36,4 +36,5 @@ const PageNation = styled.div`
   width: 100vh;
   display: flex;
   justify-content: space-between;
+	
 `

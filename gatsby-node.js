@@ -1,3 +1,4 @@
+const { notDeepEqual } = require("assert")
 const path = require("path")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -11,8 +12,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             link
           }
+					previous {
+						link
+					}
+					next {
+						link
+					}
         }
       }
+
     }
   `)
 

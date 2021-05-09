@@ -1,21 +1,24 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { htmlToText } from "html-to-text"
-import styled from "styled-components"
 
 import Back from "../components/background"
 import Pager from "../components/pager"
-
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 
 import "../styles/global.css"
 
 export default function Home({ data, pageContext }) {
+
+	// 次のページ、前のページのパラメータ設定
+	const prev = pageContext.currentPage + 1
+	const next = pageContext.currentPage - 1
+
   return (
     <>
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-      
+
       <Seo />
 
       <Layout>
@@ -43,6 +46,8 @@ export default function Home({ data, pageContext }) {
               <div className="clearfix">
                 <Pager
                   currentPage={pageContext.currentPage}
+									prev={prev}
+									next={next}
                   isFirst={pageContext.isFirst}
                   isLast={pageContext.isLast}
                 />
@@ -80,6 +85,8 @@ export default function Home({ data, pageContext }) {
               {/* Pager*/}
               <Pager
                 currentPage={pageContext.currentPage}
+								prev={prev}
+								next={next}
                 isFirst={pageContext.isFirst}
                 isLast={pageContext.isLast}
               />

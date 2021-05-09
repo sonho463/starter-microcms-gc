@@ -1,12 +1,35 @@
 import React from "react"
-import Back from "../components/background"
+import { getImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
+import { convertToBgImage } from "gbimage-bridge"
+import BackgroundImage from "gatsby-background-image"
 
-import Seo from "../components/seo"
 import Layout from "../components/layout"
-
+import Seo from "../components/seo"
 import "../styles/global.css"
 
 export default function Home() {
+  const { placeholderImage } = useStaticQuery(
+    graphql`
+      query {
+        placeholderImage: file(relativePath: { eq: "about-bg.jpg" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+      }
+    `
+  )
+
+  // getImageでイメージデータを取得して
+  const image = getImage(placeholderImage)
+  // gatsby-background-imageで使えるように変換（ｖ３への対応）
+  const bgImage = convertToBgImage(image)
+
   return (
     <>
       <>
@@ -17,58 +40,61 @@ export default function Home() {
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         {/* Font Awesome icons (free version)*/}
 
-				<Seo
-				pageTitle="About"
-				pageDescription="これはアバウトページです"
-				/>
+        <Seo pageTitle="About" pageDescription="これはアバウトページです" />
 
-				<Layout>
-					{/* Page Header*/}
-					<Back>
-          <header
-            className="masthead"
-            style={{ backgroundImage: 'url("assets/img/about-bg.jpg")' }}
+        <Layout>
+          {/* Page Header*/}
+          <BackgroundImage
+            Tag="section"
+            // Spread bgImage into BackgroundImage:
+            {...bgImage}
+            preserveStackingContext
           >
-            <div className="overlay" />
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-8 col-md-10 mx-auto">
-                  <div className="page-heading">
-                    <h1>About Me</h1>
-                    <span className="subheading">This is what I do.</span>
+            <header
+              className="masthead"
+              style={{ backgroundImage: 'url("assets/img/about-bg.jpg")' }}
+            >
+              <div className="overlay" />
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-8 col-md-10 mx-auto">
+                    <div className="page-heading">
+                      <h1>About Me</h1>
+                      <span className="subheading">This is what I do.</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </header>
-        </Back>
-        {/* Main Content*/}
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 col-md-10 mx-auto">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe
-                nostrum ullam eveniet pariatur voluptates odit, fuga atque ea
-                nobis sit soluta odio, adipisci quas excepturi maxime quae totam
-                ducimus consectetur?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
-                praesentium recusandae illo eaque architecto error, repellendus
-                iusto reprehenderit, doloribus, minus sunt. Numquam at quae
-                voluptatum in officia voluptas voluptatibus, minus!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-                consequuntur magnam, excepturi aliquid ex itaque esse est vero
-                natus quae optio aperiam soluta voluptatibus corporis atque iste
-                neque sit tempora!
-              </p>
+            </header>
+          </BackgroundImage>
+          {/* Main Content*/}
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 col-md-10 mx-auto">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Saepe nostrum ullam eveniet pariatur voluptates odit, fuga
+                  atque ea nobis sit soluta odio, adipisci quas excepturi maxime
+                  quae totam ducimus consectetur?
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
+                  praesentium recusandae illo eaque architecto error,
+                  repellendus iusto reprehenderit, doloribus, minus sunt.
+                  Numquam at quae voluptatum in officia voluptas voluptatibus,
+                  minus!
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
+                  consequuntur magnam, excepturi aliquid ex itaque esse est vero
+                  natus quae optio aperiam soluta voluptatibus corporis atque
+                  iste neque sit tempora!
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <hr />
-				</Layout>
+          <hr />
+        </Layout>
       </>
     </>
   )
