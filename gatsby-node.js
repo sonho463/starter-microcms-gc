@@ -12,28 +12,35 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             link
           }
-					previous {
-						link
-					}
-					next {
-						link
-					}
+          previous {
+            title
+            link
+          }
+          next {
+            title
+            link
+          }
         }
       }
-
     }
   `)
+
+  // createPageをedgesでまわして、それ以下のドット記法を書き直す
+  // 型定義をする
+  // contextでprevious,nextのtitleとlinkを送る
 
   if (blogresult.errors) {
     reporter.panicOnBuild(`GraphQLのクエリでエラーが発生しました`)
   }
 
-  blogresult.data.allMicrocmsPosts.edges.forEach(({ node }) => {
+  blogresult.data.allMicrocmsPosts.edges.forEach(({ node, previous, next }) => {
     createPage({
       path: `/blog/posts/${node.link}`,
       component: path.resolve(`./src/templates/post-template.jsx`),
       context: {
         id: node.id,
+        previous,
+        next,
       },
     })
   })
@@ -48,13 +55,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       path: i === 0 ? `/` : `/${i + 1}/`,
       component: path.resolve("./src/templates/index-template.jsx"),
-			context: {
-				skip: blogPostsPerPage*i,
-				limit: blogPostsPerPage,
-				currentPage: i+1, //最初のページNO
-				isFirst: i+1 === 1, // 最初のページかどうか
-				isLast: i+1 === blogPages, //最後のページかどうか
-			}
+      context: {
+        skip: blogPostsPerPage * i,
+        limit: blogPostsPerPage,
+        currentPage: i + 1, //最初のページNO
+        isFirst: i + 1 === 1, // 最初のページかどうか
+        isLast: i + 1 === blogPages, //最後のページかどうか
+      },
     })
   })
 }

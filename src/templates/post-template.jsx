@@ -1,5 +1,5 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React, { useContext } from "react"
+import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 import Seo from "../components/seo"
@@ -8,7 +8,7 @@ import MicroCmsImage from "../components/microcms-img"
 
 import "../styles/global.css"
 
-export default function Home({ data }) {
+export default function Home({ data, pageContext }) {
   const article = data.microcmsPosts.article
   const author = data.microcmsPosts.author
     ? data.microcmsPosts.author
@@ -84,6 +84,24 @@ export default function Home({ data }) {
             </div>
           </article>
           <hr />
+					{pageContext.next && (
+            <Link
+              className="btn btn-primary float-right"
+              to={`/blog/posts/${pageContext.next.link}/`}
+              rel="next"
+            >
+              {pageContext.next.title}
+            </Link>
+          )}
+          {pageContext.previous && (
+            <Link
+              className="btn btn-primary float-right"
+              to={`/blog/posts/${pageContext.previous.link}/`}
+              rel="prev"
+            >
+              {pageContext.previous.title}
+            </Link>
+          )}
         </>
       </Layout>
     </>
