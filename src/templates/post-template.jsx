@@ -93,7 +93,7 @@ const ArticleWrapper = styled.div`
               to={`/blog/posts/${pageContext.next.link}/`}
               rel="next"
             >
-              {pageContext.next.title}
+              {pageContext.next.title}　＞＞＞
             </Link>
           )}
           {pageContext.previous && (
@@ -102,7 +102,7 @@ const ArticleWrapper = styled.div`
               to={`/blog/posts/${pageContext.previous.link}/`}
               rel="prev"
             >
-              {pageContext.previous.title}
+              ＜＜＜　{pageContext.previous.title}
             </Link>
           )}
         </>
