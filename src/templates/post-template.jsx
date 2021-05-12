@@ -13,13 +13,16 @@ export default function Home({ data, pageContext }) {
   const author = data.microcmsPosts.author
     ? data.microcmsPosts.author
     : "Dそんほんす"
-  // const url = data.microcmsPosts.eye_catch.url ? data.microcmsPosts.eye_catch.url : "src/images/post-bg.jpg"
+  // const url = data.microcmsPosts.eye_catch.url ? data.microcmsPosts.eye_catch.url : "../src/images/post-bg.jpg"
 
 	const EyeCatch = styled.div`
 		position: absolute;
 		top: 0;	`
 
-	// prev,next,currentPageの取得
+const ArticleWrapper = styled.div`
+	& img{
+		width:80%;
+	}`
 
 
   return (
@@ -74,7 +77,7 @@ export default function Home({ data, pageContext }) {
             <div className="container">
               <div className="row">
                 <div className="col-lg-8 col-md-10 mx-auto">
-                  <div
+                  <ArticleWrapper
                     dangerouslySetInnerHTML={{
                       __html: article,
                     }}
@@ -86,7 +89,7 @@ export default function Home({ data, pageContext }) {
           <hr />
 					{pageContext.next && (
             <Link
-              className="btn btn-primary float-right"
+              className="btn btn-primary d-block mx-auto mb-1"
               to={`/blog/posts/${pageContext.next.link}/`}
               rel="next"
             >
@@ -95,7 +98,7 @@ export default function Home({ data, pageContext }) {
           )}
           {pageContext.previous && (
             <Link
-              className="btn btn-primary float-right"
+              className="btn btn-primary d-block mx-auto"
               to={`/blog/posts/${pageContext.previous.link}/`}
               rel="prev"
             >
