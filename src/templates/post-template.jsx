@@ -87,22 +87,23 @@ const ArticleWrapper = styled.div`
             </div>
           </article>
           <hr />
-					{pageContext.next && (
-            <Link
-              className="btn btn-primary d-block mx-auto mb-1"
-              to={`/blog/posts/${pageContext.next.link}/`}
-              rel="next"
-            >
-              {pageContext.next.title}　＞＞＞
-            </Link>
-          )}
+
           {pageContext.previous && (
             <Link
               className="btn btn-primary d-block mx-auto"
               to={`/blog/posts/${pageContext.previous.link}/`}
               rel="prev"
             >
-              ＜＜＜　{pageContext.previous.title}
+            　{pageContext.previous.title}　＞＞＞new
+            </Link>
+          )}
+					{pageContext.next && (
+            <Link
+              className="btn btn-primary d-block mx-auto mb-1"
+              to={`/blog/posts/${pageContext.next.link}/`}
+              rel="next"
+            >
+              old＜＜＜　{pageContext.next.title}
             </Link>
           )}
         </>
