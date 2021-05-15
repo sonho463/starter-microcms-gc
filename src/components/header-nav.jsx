@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 const HeaderNav = () => {
+
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light fixed-top"
@@ -24,6 +25,7 @@ const HeaderNav = () => {
           Menu
           <i className="fas fa-bars" />
         </button>
+        {/* <div className="collapse navbar-collapse" id="navbarResponsive"> */}
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -43,7 +45,7 @@ const HeaderNav = () => {
             </li>
           </ul>
         </div>
-        
+
       </div>
     </nav>
   )

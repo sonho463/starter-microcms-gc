@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 import MicroCmsImage from "../components/microcms-img"
 
-import "../styles/global.css"
+// import "../styles/global.css"
 
 export default function Home({ data, pageContext }) {
   const article = data.microcmsPosts.article

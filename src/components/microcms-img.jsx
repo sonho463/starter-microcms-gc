@@ -10,9 +10,9 @@ export default function MicroCmsImg(props) {
   // url以外のパラメータを１つの文字列型変数にセット
   let array = Object.values(props)
   let param = ""
-  array.map(function (a) {
+  array.forEach(function (a) {
     if (array.indexOf(a) !== 0) {
-      if (array.indexOf(a) == 1) {
+      if (array.indexOf(a) === 1) {
         param = `?${a}`
       } else {
         param = `${param}&${a}`

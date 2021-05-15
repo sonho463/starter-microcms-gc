@@ -7,13 +7,17 @@ import Pager from "../components/pager"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 
-import "../styles/global.css"
+// import "../styles/global.css"
 
 export default function Home({ data, pageContext }) {
 
 	// 次のページ、前のページのパラメータ設定
 	const prev = pageContext.currentPage + 1
 	const next = pageContext.currentPage - 1
+
+	console.log(prev)
+
+
 
   return (
     <>
@@ -95,7 +99,7 @@ export default function Home({ data, pageContext }) {
         </div>
         <hr />
       </Layout>
-			
+
     </>
   )
 }

@@ -5,7 +5,7 @@ import Back from "../components/background"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
 
-import "../styles/global.css"
+// import "../styles/global.css"
 
 export default function Home({ data }) {
   const category = data.microcmsPosts.category.category
