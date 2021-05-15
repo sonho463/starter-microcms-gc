@@ -9,7 +9,6 @@ const HeaderNav = () => {
     >
       <div className="container">
         <Link to="/"　className="navbar-brand">HorumonT'sBlog</Link>
-
         <button
           className="navbar-toggler navbar-toggler-right"
           type="button"
