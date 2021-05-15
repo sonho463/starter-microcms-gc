@@ -33,7 +33,7 @@ export default function Pager(props) {
 }
 
 const PageNation = styled.div`
-  width: 100vh;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 `
