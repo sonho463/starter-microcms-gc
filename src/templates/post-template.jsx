@@ -90,7 +90,7 @@ const ArticleWrapper = styled.div`
 
           {pageContext.previous && (
             <Link
-              className="btn btn-primary d-block mx-auto"
+              className="btn btn-primary d-block mx-auto mb-1"
               to={`/blog/posts/${pageContext.previous.link}/`}
               rel="prev"
             >

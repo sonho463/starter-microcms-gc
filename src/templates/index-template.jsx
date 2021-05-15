@@ -95,6 +95,7 @@ export default function Home({ data, pageContext }) {
         </div>
         <hr />
       </Layout>
+			
     </>
   )
 }

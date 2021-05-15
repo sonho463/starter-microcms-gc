@@ -8,7 +8,9 @@ const HeaderNav = () => {
       id="mainNav"
     >
       <div className="container">
-        <Link to="/"　className="navbar-brand">HorumonT'sBlog</Link>
+        <Link to="/" className="navbar-brand">
+          HorumonT'sBlog
+        </Link>
 
         <button
           className="navbar-toggler navbar-toggler-right"
@@ -41,6 +43,7 @@ const HeaderNav = () => {
             </li>
           </ul>
         </div>
+        
       </div>
     </nav>
   )
