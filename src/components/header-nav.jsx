@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import Menu from "./menu"
 
 const HeaderNav = () => {
   return (
@@ -17,7 +16,6 @@ const HeaderNav = () => {
           <button
             className="navbar-toggler"
             type="button">
-            <Menu width={'100%'} />
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
