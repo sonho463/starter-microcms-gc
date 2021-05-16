@@ -12,12 +12,13 @@ export default function MicroCmsImg(props) {
   let param = ""
   array.map(function (a) {
     if (array.indexOf(a) !== 0) {
-      if (array.indexOf(a) == 1) {
+      if (array.indexOf(a) === 1) {
         param = `?${a}`
       } else {
         param = `${param}&${a}`
       }
     }
+		return param
   })
   return (
     <>

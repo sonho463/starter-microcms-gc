@@ -57,11 +57,11 @@ export default function Home({ data, pageContext }) {
                 const author = node.author || "Dそんほんす"
                 const article = node.article || "no article"
                 const textData = htmlToText(article, {
-                  tags: { a: { options: { ignoreHref: true } } },
-                  tags: { img: { format: "skip" } },
-                  limits: { ellipsis: "...", maxInputLength: 300 },
+                  tags: { a: { options: { ignoreHref: true } },img: { format: "skip" } },
+                  // tags: { img: { format: "skip" } },
+                  limits: { ellipsis: "...", maxInputLength: 200 },
                 })
-                const description = node.description || textData
+                const description = node.description || `${textData}...`
 
                 return (
                   <>

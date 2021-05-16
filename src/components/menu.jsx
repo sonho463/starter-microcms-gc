@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby"
 import { stack as Menu } from "react-burger-menu";
 
-export default props => {
+export default function SpMenu(props) {
   return (
     <Menu {...props}>
       <div className="collapse navbar-collapse" id="navbarResponsive">
