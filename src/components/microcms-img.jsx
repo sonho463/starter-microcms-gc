@@ -20,9 +20,18 @@ export default function MicroCmsImg(props) {
     }
   })
 
+	// const srcset=(width,dpr)=>`?w=${width}&dpr=${dpr} ${dpr}x`
+
   return (
     <>
-			<ImgWrapper src={url + param} alt="" />
+			<ImgWrapper
+			srcset={`
+			${url}?w=400&dpr=1 1x,
+			${url}?w=400&dpr=2 2x,
+			${url}?w=400&dpr=3 3x
+			`}
+
+			src={url + param} alt="" />
     </>
   )
 }
