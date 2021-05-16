@@ -15,9 +15,9 @@ export default function Home({ data, pageContext }) {
     : "Dそんほんす"
   // const url = data.microcmsPosts.eye_catch.url ? data.microcmsPosts.eye_catch.url : "../src/images/post-bg.jpg"
 
-	const EyeCatch = styled.div`
-		position: absolute;
-		top: 0;	`
+	// const EyeCatch = styled.div`
+	// 	position: absolute;
+	// 	top: 0;	`
 
 const ArticleWrapper = styled.div`
 	& img{
@@ -46,15 +46,15 @@ const ArticleWrapper = styled.div`
           />
 
           <header className="masthead" style={{position:"relative",overflow:"hidden"}}>
-              <EyeCatch>
+              {/* <EyeCatch> */}
 								{/* １つ目のpropsは必ずurl それ以外は順不同でOK */}
 								<MicroCmsImage
 									url={data.microcmsPosts.eye_catch.url}
 									compress="auto=compress"
 									format="auto=format"
-									ar="ar=2:1&fit=crop&fp-y=0.5"
+									ar="ar=2:1&fit=crop&fp-y=0.5&fp-x=0.5"
 								/>
-							</EyeCatch>
+							{/* </EyeCatch> */}
             <div className="overlay" />
             <div className="container">
               <div className="row">
