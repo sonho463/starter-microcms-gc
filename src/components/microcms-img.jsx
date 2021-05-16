@@ -19,7 +19,6 @@ export default function MicroCmsImg(props) {
       }
     }
   })
-
   return (
     <>
 			<ImgWrapper src={url + param} alt="" />
