@@ -14,7 +14,7 @@ export default function Pager(props) {
             ←　Old
           </Link>
         ) : (
-          <div　className="btn btn-primary">いちばん古い</div>
+          <div　className="btn btn-primary disabled">Oldest</div>
         )}
         {!isFirst ? (
           <Link
@@ -25,7 +25,7 @@ export default function Pager(props) {
             New →
           </Link>
         ) : (
-          <div　className="btn btn-primary">いちばん新しい</div>
+          <div　className="btn btn-primary disabled">Newest</div>
         )}
       </PageNation>
     </>

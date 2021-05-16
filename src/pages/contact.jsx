@@ -40,7 +40,7 @@ export default function Contact(location) {
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         {/* Font Awesome icons (free version)*/}
 
-        <Seo pageTitle="About" pageDescription="これはアバウトページです" pagepath={location.path} />
+        <Seo pageTitle="Contact" pageDescription="これはコンタクトページです" pagepath={location.path} />
 
         <Layout>
           {/* Page Header*/}

@@ -59,7 +59,7 @@ const Footer = () => {
               </SnsLink>
             </ul>
             <p className="copyright text-muted">
-              Copyright © Your Website 2021
+              Copyright © HorumonT's Blog 2021
             </p>
           </div>
         </div>
@@ -69,7 +69,7 @@ const Footer = () => {
 }
 
 const SnsLink = styled(Link)`
-  margin: 10px;
+  margin: 20px;
 `
 
 export default Footer
