@@ -10,16 +10,13 @@ const HeaderNav = () => {
         id="mainNav"
       >
         <div className="navbar-toggler">
-					<Menu width={"100%"} />
-				</div>
+          <Menu width={"100%"} />
+        </div>
         <div className="container">
           <Link to="/" className="navbar-brand">
             HorumonT'sBlog
           </Link>
 
-          {/* <button className="navbar-toggler" type="button">
-            これは？
-          </button> */}
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
