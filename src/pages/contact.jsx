@@ -15,7 +15,7 @@ export default function Home() {
         placeholderImage: file(relativePath: { eq: "contact-bg.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 200
+              width: 800
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )

@@ -8,10 +8,10 @@ const BgImage = ({ children }) => {
   const { placeholderImage } = useStaticQuery(
     graphql`
       query {
-        placeholderImage: file(relativePath: { eq: "home-bg.jpg" }) {
+        placeholderImage: file(relativePath: { eq: "top-bg.jpg" }) {
           childImageSharp {
             gatsbyImageData(
-              width: 200
+              width: 1000
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]
             )
