@@ -8,9 +8,9 @@ import Layout from "../components/layout"
 import "../styles/global.css"
 
 export default function Home({ data }) {
-  const category = data.microcmsPosts.category.category
-    ? data.microcmsPosts.category.category_name
-    : "カテゴリなし"
+  // const category = data.microcmsPosts.category.category
+  //   ? data.microcmsPosts.category.category_name
+  //   : "カテゴリなし"
   const article = data.microcmsPosts.article
 	const author = data.microcmsPosts.author ? data.microcmsPosts.author : "Dそんほんす"
 
@@ -42,7 +42,6 @@ export default function Home({ data }) {
                   <div className="col-lg-8 col-md-10 mx-auto">
                     <div className="post-heading">
                       <h1>{data.microcmsPosts.title}</h1>
-                      <h2 className="subheading">{category}</h2>
                       <span className="meta">
                         Posted by
                         <a href="#!">{author}</a>
