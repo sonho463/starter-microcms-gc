@@ -125,13 +125,9 @@ export const query = graphql`
         url
       }
       category {
-        category
-        categorySlug
+        category_name
+        category_slug
       }
-    }
-    microcmsCategory {
-      category
-      categorySlug
     }
   }
 `

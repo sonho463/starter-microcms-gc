@@ -9,7 +9,7 @@ import "../styles/global.css"
 
 export default function Home({ data }) {
   const category = data.microcmsPosts.category.category
-    ? data.microcmsPosts.category.category
+    ? data.microcmsPosts.category.category_name
     : "カテゴリなし"
   const article = data.microcmsPosts.article
 	const author = data.microcmsPosts.author ? data.microcmsPosts.author : "Dそんほんす"
@@ -88,13 +88,9 @@ export const query = graphql`
 				url
 			}
       category {
-        category
-        categorySlug
+        category_name
+        category_slug
       }
-    }
-    microcmsCategory {
-      category
-      categorySlug
     }
   }
 `
