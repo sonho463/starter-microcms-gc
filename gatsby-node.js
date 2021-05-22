@@ -6,6 +6,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const blogresult = await graphql(`
     query {
+			microcmsConfig {
+				title
+				subtitle
+			}
       allMicrocmsPosts(sort: { fields: updatedAt, order: DESC }) {
         edges {
           node {
@@ -49,6 +53,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const blogPosts = Object.keys(blogresult.data.allMicrocmsPosts.edges).length // 記事総数
   const blogPages = Math.ceil(blogPosts / blogPostsPerPage) // 記事一覧ページの数
+	const blogTitle = blogresult.data.microcmsConfig.title
+	const blogSubtitle = blogresult.data.microcmsConfig.subtitle
 
   Array.from({ length: blogPages }).forEach((_, i) => {
     // blogPosts.forEach((_, i) => {
@@ -61,6 +67,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         currentPage: i + 1, //最初のページNO
         isFirst: i + 1 === 1, // 最初のページかどうか
         isLast: i + 1 === blogPages, //最後のページかどうか
+				title: blogTitle,
+				subtitle: blogSubtitle,
       },
     })
   })

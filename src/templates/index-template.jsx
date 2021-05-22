@@ -15,6 +15,10 @@ export default function Home({ data, pageContext }) {
 	const prev = pageContext.currentPage + 1
 	const next = pageContext.currentPage - 1
 
+	// const title = data.allMicrocmsConfig.edges.node.title
+	// const subtitle = data.allMicrocmsConfig.edges.node.subtitle
+
+
   return (
     <>
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -29,8 +33,8 @@ export default function Home({ data, pageContext }) {
               <div className="row">
                 <div className="col-lg-8 col-md-10 mx-auto">
                   <div className="site-heading">
-                    <h1>HorumonT's Blog</h1>
-                    <span className="subheading">Over40WebClub 学習会</span>
+                    <h1>{pageContext.title}</h1>
+                    <span className="subheading">{pageContext.subtitle}</span>
                   </div>
                 </div>
               </div>

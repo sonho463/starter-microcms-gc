@@ -39,6 +39,10 @@ module.exports = {
 					{
 						endpoint: "tag",
 					},
+					{
+						endpoint: "config",
+						format: "object",
+					},
         ],
       },
     },
