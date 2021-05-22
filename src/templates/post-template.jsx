@@ -13,7 +13,9 @@ export default function Home({ data, pageContext }) {
   const author = data.microcmsPosts.author
     ? data.microcmsPosts.author
     : "Dそんほんす"
-  // const url = data.microcmsPosts.eye_catch.url ? data.microcmsPosts.eye_catch.url : "../src/images/post-bg.jpg"
+
+	//　アイキャッチ画像未設定のときデフォルト画像設定
+		const url = data.microcmsPosts.eye_catch ? data.microcmsPosts.eye_catch.url : "https://images.microcms-assets.io/assets/a20dd30d3f4d43d8814295dae8cee134/b6697014dafc49e29be207d11715c62a/default.png"
 
 	// const EyeCatch = styled.div`
 	// 	position: absolute;
@@ -49,7 +51,8 @@ const ArticleWrapper = styled.div`
               {/* <EyeCatch> */}
 								{/* １つ目のpropsは必ずurl それ以外は順不同でOK */}
 								<MicroCmsImage
-									url={data.microcmsPosts.eye_catch.url}
+									// url={data.microcmsPosts.eye_catch.url}
+									url={url}
 									compress="auto=compress"
 									format="auto=format"
 									ar="ar=2:1&fit=crop&fp-y=0.5&fp-x=0.5"
