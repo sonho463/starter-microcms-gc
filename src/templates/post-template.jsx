@@ -13,9 +13,10 @@ export default function Home({ data, pageContext }) {
   const author = data.microcmsPosts.author
     ? data.microcmsPosts.author
     : "Dそんほんす"
-
 	//　アイキャッチ画像未設定のときデフォルト画像設定
-		const url = data.microcmsPosts.eye_catch ? data.microcmsPosts.eye_catch.url : "https://images.microcms-assets.io/assets/a20dd30d3f4d43d8814295dae8cee134/b6697014dafc49e29be207d11715c62a/default.png"
+	const url = data.microcmsPosts.eye_catch
+	? data.microcmsPosts.eye_catch.url
+	: "https://images.microcms-assets.io/assets/a20dd30d3f4d43d8814295dae8cee134/b6697014dafc49e29be207d11715c62a/default.png"
 
 	// const EyeCatch = styled.div`
 	// 	position: absolute;
@@ -29,7 +30,7 @@ const ArticleWrapper = styled.div`
 
   return (
     <>
-      <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+      {/* <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> */}
 
       <Seo />
 
@@ -126,10 +127,6 @@ export const query = graphql`
       author
       eye_catch {
         url
-      }
-      category {
-        category_name
-        category_slug
       }
     }
   }

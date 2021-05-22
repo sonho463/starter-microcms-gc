@@ -86,10 +86,6 @@ export const query = graphql`
 			eye_catch {
 				url
 			}
-      category {
-        category_name
-        category_slug
-      }
     }
   }
 `
