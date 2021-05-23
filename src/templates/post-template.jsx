@@ -13,20 +13,29 @@ export default function Home({ data, pageContext }) {
   const author = data.microcmsPosts.author
     ? data.microcmsPosts.author
     : "Dそんほんす"
-	//　アイキャッチ画像未設定のときデフォルト画像設定
-	const url = data.microcmsPosts.eye_catch
-	? data.microcmsPosts.eye_catch.url
-	: "https://images.microcms-assets.io/assets/a20dd30d3f4d43d8814295dae8cee134/b6697014dafc49e29be207d11715c62a/default.png"
 
-	// const EyeCatch = styled.div`
-	// 	position: absolute;
-	// 	top: 0;	`
+  //カテゴリ未設定のときのデフォルト設定
+  const category = data.microcmsPosts.category
+    ? data.microcmsPosts.category.category
+    : "カテゴリ未設定"
+  const categorySlug = data.microcmsPosts.category
+    ? `/cat/${data.microcmsPosts.category.categorySlug}/`
+    : "/"
 
-const ArticleWrapper = styled.div`
-	& img{
-		width:80%;
-	}`
+  //　アイキャッチ画像未設定のときデフォルト画像設定
+  const url = data.microcmsPosts.eye_catch
+    ? data.microcmsPosts.eye_catch.url
+    : "https://images.microcms-assets.io/assets/a20dd30d3f4d43d8814295dae8cee134/b6697014dafc49e29be207d11715c62a/default.png"
 
+  // const EyeCatch = styled.div`
+  // 	position: absolute;
+  // 	top: 0;	`
+
+  const ArticleWrapper = styled.div`
+    & img {
+      width: 80%;
+    }
+  `
 
   return (
     <>
@@ -48,17 +57,20 @@ const ArticleWrapper = styled.div`
             pageDescription="これは投稿ページ。次にcreatePageで動的に生成します"
           />
 
-          <header className="masthead" style={{position:"relative",overflow:"hidden"}}>
-              {/* <EyeCatch> */}
-								{/* １つ目のpropsは必ずurl それ以外は順不同でOK */}
-								<MicroCmsImage
-									// url={data.microcmsPosts.eye_catch.url}
-									url={url}
-									compress="auto=compress"
-									format="auto=format"
-									ar="ar=2:1&fit=crop&fp-y=0.5&fp-x=0.5"
-								/>
-							{/* </EyeCatch> */}
+          <header
+            className="masthead"
+            style={{ position: "relative", overflow: "hidden" }}
+          >
+            {/* <EyeCatch> */}
+            {/* １つ目のpropsは必ずurl それ以外は順不同でOK */}
+            <MicroCmsImage
+              // url={data.microcmsPosts.eye_catch.url}
+              url={url}
+              compress="auto=compress"
+              format="auto=format"
+              ar="ar=2:1&fit=crop&fp-y=0.5&fp-x=0.5"
+            />
+            {/* </EyeCatch> */}
             <div className="overlay" />
             <div className="container">
               <div className="row">
@@ -67,8 +79,12 @@ const ArticleWrapper = styled.div`
                     <h1>{data.microcmsPosts.title}</h1>
                     <span className="meta">
                       Posted by
-                      <a href="#!">{author}</a>
+                      {author}
                       on {data.microcmsPosts.updatedAtJP}
+                    </span>
+                    <span className="meta">
+                      カテゴリ：
+                      <Link to={categorySlug}>{category}</Link>
                     </span>
                   </div>
                 </div>
@@ -98,10 +114,10 @@ const ArticleWrapper = styled.div`
               to={`/blog/posts/${pageContext.previous.link}/`}
               rel="prev"
             >
-            　{pageContext.previous.title}　＞＞＞new
+              　{pageContext.previous.title}　＞＞＞new
             </Link>
           )}
-					{pageContext.next && (
+          {pageContext.next && (
             <Link
               className="btn btn-primary d-block mx-auto mb-1"
               to={`/blog/posts/${pageContext.next.link}/`}
@@ -127,6 +143,10 @@ export const query = graphql`
       author
       eye_catch {
         url
+      }
+      category {
+        category
+        categorySlug
       }
     }
   }
