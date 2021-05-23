@@ -7,7 +7,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `ほるもんTのブログ`,
-    siteUrl: "https://blog-by-microcms.netlify.app",
+    siteUrl: "https://starter-microcms-gc.netlify.app/",
     description: `これは、GatsbyとmicroCMSで作ったブログです。`,
     lang: `ja`,
 		locale: `ja_jp`,
