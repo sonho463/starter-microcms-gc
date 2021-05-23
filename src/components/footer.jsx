@@ -14,49 +14,55 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-8 col-md-10 mx-auto">
-            <ul className="list-inline text-center">
-              <SnsLink
-                to="https://twitter.com/horumont"
-                className="list-inline-item"
-              >
-                <span className="fa-layers fa-fw">
-                  <FontAwesomeIcon icon={faCircle} size="2x" />
-                  <FontAwesomeIcon
-                    icon={faTwitter}
-                    inverse
-                    size="1x"
-                    transform="right-6"
-                  />
-                </span>
-              </SnsLink>
-              <SnsLink
-                to="https://facebook.com/horumont"
-                className="list-inline-item"
-              >
-                <span className="fa-layers fa-fw">
-                  <FontAwesomeIcon icon={faCircle} size="2x" />
-                  <FontAwesomeIcon
-                    icon={faFacebookF}
-                    inverse
-                    size="1x"
-                    transform="right-6"
-                  />
-                </span>
-              </SnsLink>
-              <SnsLink
-                to="https://github.com/sonho463"
-                className="list-inline-item"
-              >
-                <span className="fa-layers fa-fw">
-                  <FontAwesomeIcon icon={faCircle} size="2x" />
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    inverse
-                    size="1x"
-                    transform="right-6"
-                  />
-                </span>
-              </SnsLink>
+            <ul className="list-inline d-flex justify-content-center">
+              <li>
+                <SnsLink
+                  to="https://twitter.com/horumont"
+                  className="list-inline-item"
+                >
+                  <span className="fa-layers fa-fw">
+                    <FontAwesomeIcon icon={faCircle} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faTwitter}
+                      inverse
+                      size="1x"
+                      transform="right-6"
+                    />
+                  </span>
+                </SnsLink>
+              </li>
+              <li>
+                <SnsLink
+                  to="https://facebook.com/horumont"
+                  className="list-inline-item"
+                >
+                  <span className="fa-layers fa-fw">
+                    <FontAwesomeIcon icon={faCircle} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faFacebookF}
+                      inverse
+                      size="1x"
+                      transform="right-6"
+                    />
+                  </span>
+                </SnsLink>
+              </li>
+              <li>
+                <SnsLink
+                  to="https://github.com/sonho463"
+                  className="list-inline-item"
+                >
+                  <span className="fa-layers fa-fw">
+                    <FontAwesomeIcon icon={faCircle} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      inverse
+                      size="1x"
+                      transform="right-6"
+                    />
+                  </span>
+                </SnsLink>
+              </li>
             </ul>
             <p className="copyright text-muted">
               Copyright © HorumonT's Blog 2021

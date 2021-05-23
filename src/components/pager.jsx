@@ -10,22 +10,22 @@ export default function Pager(props) {
       {/* Pager*/}
       <PageNation>
         {!isLast ? (
-          <Link className="btn btn-primary" to={`/${prev}/`} rel="prev">
+          <Link className="btn btn-dark" to={`/${prev}/`} rel="prev">
             ←　Old
           </Link>
         ) : (
-          <div　className="btn btn-primary disabled">Oldest</div>
+          <div　className="btn btn-secondary">Oldest</div>
         )}
         {!isFirst ? (
           <Link
-            className="btn btn-primary"
+            className="btn btn-dark"
             to={currentPage === 2 ? `/` : `/${next}/`}
             rel="next"
           >
             New →
           </Link>
         ) : (
-          <div　className="btn btn-primary disabled">Newest</div>
+          <div　className="btn btn-secondary">Newest</div>
         )}
       </PageNation>
     </>
