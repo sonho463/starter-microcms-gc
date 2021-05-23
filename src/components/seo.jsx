@@ -29,7 +29,7 @@ const SEO = props => {
     : site.siteMetadata.siteUrl
   const imgurl = props.pageimg
     ? `${site.siteMetadata.siteUrl}${props.pageimg}`
-    : `${site.siteMetadata.siteUrl}/thumb.jpg`
+    : `${site.siteMetadata.siteUrl}/thumb.png`
   const imgw = props.pageimgw || 1280
   const imgh = props.pageimgh || 640
 
