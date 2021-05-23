@@ -3,30 +3,26 @@ import { graphql, Link } from "gatsby"
 import { htmlToText } from "html-to-text"
 
 import Back from "../components/background"
-import Pager from "../components/pager"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
+import CategoryList from "../components/category-list"
 
 import "../styles/global.css"
 
 export default function Home({ data, location, pageContext }) {
+  // 次のページ、前のページのパラメータ設定
 
-	// 次のページ、前のページのパラメータ設定
-	const prev = pageContext.currentPage + 1
-	const next = pageContext.currentPage - 1
-
-
-	// const catid = pageContext.catid
+  // const catid = pageContext.catid
 
   return (
     <>
       <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
       <Seo
-				pageTitle={`CATEGORY: ${pageContext.catName}`}
-				pageDescription={`「${pageContext.catName}」カテゴリーの記事です`}
-				pagepath={location.pathname}
-			/>
+        pageTitle={`CATEGORY: ${pageContext.catName}`}
+        pageDescription={`「${pageContext.catName}」カテゴリーの記事です`}
+        pagepath={location.pathname}
+      />
 
       <Layout>
         <Back>
@@ -36,8 +32,9 @@ export default function Home({ data, location, pageContext }) {
               <div className="row">
                 <div className="col-lg-8 col-md-10 mx-auto">
                   <div className="site-heading">
-                    <h1>CATEGORY: {pageContext.catName}</h1>
+                    <h1>カテゴリ: {pageContext.catName}</h1>
                   </div>
+						<CategoryList />
                 </div>
               </div>
             </div>
@@ -48,22 +45,15 @@ export default function Home({ data, location, pageContext }) {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
-              {/* Pager*/}
-              <div className="clearfix">
-                <Pager
-                  currentPage={pageContext.currentPage}
-									prev={prev}
-									next={next}
-                  isFirst={pageContext.isFirst}
-                  isLast={pageContext.isLast}
-                />
-              </div>
 
               {data.allMicrocmsPosts.edges.map(({ node }) => {
                 const author = node.author || "Dそんほんす"
                 const article = node.article || "no article"
                 const textData = htmlToText(article, {
-                  tags: { a: { options: { ignoreHref: true } },img: { format: "skip" } },
+                  tags: {
+                    a: { options: { ignoreHref: true } },
+                    img: { format: "skip" },
+                  },
                   // tags: { img: { format: "skip" } },
                   limits: { ellipsis: "...", maxInputLength: 200 },
                 })
@@ -88,14 +78,6 @@ export default function Home({ data, location, pageContext }) {
                 )
               })}
               <hr />
-              {/* Pager*/}
-              <Pager
-                currentPage={pageContext.currentPage}
-								prev={prev}
-								next={next}
-                isFirst={pageContext.isFirst}
-                isLast={pageContext.isLast}
-              />
             </div>
           </div>
         </div>
@@ -108,7 +90,7 @@ export default function Home({ data, location, pageContext }) {
 export const query = graphql`
   query($catSlug: String, $skip: Int!, $limit: Int!) {
     allMicrocmsPosts(
-			filter: {category: {categorySlug: {eq: $catSlug}}}
+      filter: { category: { categorySlug: { eq: $catSlug } } }
       sort: { order: DESC, fields: updatedAt }
       skip: $skip
       limit: $limit

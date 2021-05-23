@@ -6,6 +6,7 @@ import Back from "../components/background"
 import Pager from "../components/pager"
 import Seo from "../components/seo"
 import Layout from "../components/layout"
+import CategoryList from "../components/category-list"
 
 import "../styles/global.css"
 
@@ -31,6 +32,7 @@ export default function Home({ data, pageContext }) {
                     <h1>{pageContext.title}</h1>
                     <span className="subheading">{pageContext.subtitle}</span>
                   </div>
+									<CategoryList />
                 </div>
               </div>
             </div>
