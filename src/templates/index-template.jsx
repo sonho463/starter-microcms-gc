@@ -65,9 +65,11 @@ export default function Home({ data, pageContext }) {
                 })
                 const description = node.description || `${textData}...`
                 const category = node.category
-									? node.category.category
-									: "カテゴリ未設定"
-                const categorySlug = `/cat/${node.categorySlug}/` || "/"
+                  ? node.category.category
+                  : "カテゴリ未設定"
+                const categorySlug = node.category
+                  ? `/cat/${node.category.categorySlug}/`
+                  : "/"
 
                 return (
                   <>
@@ -84,7 +86,6 @@ export default function Home({ data, pageContext }) {
                         <br />
                         {node.updatedAtJP}
                       </p>
-
                     </div>
                     <hr />
                   </>
