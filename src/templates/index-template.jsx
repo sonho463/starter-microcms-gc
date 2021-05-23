@@ -10,14 +10,9 @@ import Layout from "../components/layout"
 import "../styles/global.css"
 
 export default function Home({ data, pageContext }) {
-
-	// 次のページ、前のページのパラメータ設定
-	const prev = pageContext.currentPage + 1
-	const next = pageContext.currentPage - 1
-
-	// const title = data.allMicrocmsConfig.edges.node.title
-	// const subtitle = data.allMicrocmsConfig.edges.node.subtitle
-
+  // 次のページ、前のページのパラメータ設定
+  const prev = pageContext.currentPage + 1
+  const next = pageContext.currentPage - 1
 
   return (
     <>
@@ -50,8 +45,8 @@ export default function Home({ data, pageContext }) {
               <div className="clearfix">
                 <Pager
                   currentPage={pageContext.currentPage}
-									prev={prev}
-									next={next}
+                  prev={prev}
+                  next={next}
                   isFirst={pageContext.isFirst}
                   isLast={pageContext.isLast}
                 />
@@ -61,11 +56,18 @@ export default function Home({ data, pageContext }) {
                 const author = node.author || "Dそんほんす"
                 const article = node.article || "no article"
                 const textData = htmlToText(article, {
-                  tags: { a: { options: { ignoreHref: true } },img: { format: "skip" } },
+                  tags: {
+                    a: { options: { ignoreHref: true } },
+                    img: { format: "skip" },
+                  },
                   // tags: { img: { format: "skip" } },
                   limits: { ellipsis: "...", maxInputLength: 200 },
                 })
                 const description = node.description || `${textData}...`
+                const category = node.category
+									? node.category.category
+									: "カテゴリ未設定"
+                const categorySlug = `/cat/${node.categorySlug}/` || "/"
 
                 return (
                   <>
@@ -76,10 +78,13 @@ export default function Home({ data, pageContext }) {
                       </Link>
                       <p className="post-meta">
                         Posted by
-                        <a href="#!">{author}</a>
+                        <span>{author}</span>
+                        <br />
+                        <Link to={categorySlug}>カテゴリ：{category}</Link>
                         <br />
                         {node.updatedAtJP}
                       </p>
+
                     </div>
                     <hr />
                   </>
@@ -89,8 +94,8 @@ export default function Home({ data, pageContext }) {
               {/* Pager*/}
               <Pager
                 currentPage={pageContext.currentPage}
-								prev={prev}
-								next={next}
+                prev={prev}
+                next={next}
                 isFirst={pageContext.isFirst}
                 isLast={pageContext.isLast}
               />
@@ -120,6 +125,10 @@ export const query = graphql`
           updatedAt
           description
           article
+          category {
+            category
+            categorySlug
+          }
         }
       }
     }
