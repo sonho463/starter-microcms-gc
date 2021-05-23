@@ -10,6 +10,8 @@ module.exports = {
     siteUrl: "https://blog-by-microcms.netlify.app",
     description: `これは、GatsbyとmicroCMSで作ったブログです。`,
     lang: `ja`,
+		locale: `ja_jp`,
+		fbappid: `510836253386080`
   },
   /* Your site config here */
   plugins: [
