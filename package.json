@@ -37,6 +37,7 @@
     "react-burger-menu": "^3.0.6",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.6.5",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
