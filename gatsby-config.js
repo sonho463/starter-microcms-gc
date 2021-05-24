@@ -16,6 +16,12 @@ module.exports = {
   /* Your site config here */
   plugins: [
 		{
+			resolve: 'gatsby-plugin-preconnect',
+			options: {
+				domains: ['https://fonts.googleapis.com'],
+			},
+		},
+		{
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
