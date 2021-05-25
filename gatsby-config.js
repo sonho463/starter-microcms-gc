@@ -45,9 +45,6 @@ module.exports = {
 						endpoint: "category",
 					},
 					{
-						endpoint: "tag",
-					},
-					{
 						endpoint: "config",
 						format: "object",
 					},
@@ -66,6 +63,5 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
 		`gatsby-plugin-styled-components`,
-
   ],
 }

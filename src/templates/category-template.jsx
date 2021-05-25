@@ -7,8 +7,6 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 import CategoryList from "../components/category-list"
 
-import "../styles/global.css"
-
 const CategoryPage=({ data, location, pageContext })=> {
 
   return (

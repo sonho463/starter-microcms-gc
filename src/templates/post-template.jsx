@@ -6,8 +6,6 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 import MicroCmsImage from "../components/microcms-img"
 
-import "../styles/global.css"
-
 export default function Home({ data, pageContext }) {
   const article = data.microcmsPosts.article
   const author = data.microcmsPosts.author

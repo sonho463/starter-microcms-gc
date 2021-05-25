@@ -6,7 +6,6 @@ import BackgroundImage from "gatsby-background-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import "../styles/global.css"
 
 const About = location => {
   const { placeholderImage } = useStaticQuery(

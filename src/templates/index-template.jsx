@@ -8,8 +8,6 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 import CategoryList from "../components/category-list"
 
-import "../styles/global.css"
-
 const Home = ({ data, pageContext }) => {
   const prev = pageContext.currentPage + 1
   const next = pageContext.currentPage - 1

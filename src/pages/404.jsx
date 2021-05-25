@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import "../styles/global.css"
-
 const page404 = ({ location }) => {
   return (
     <Layout>
