@@ -37,8 +37,6 @@ const About = location => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        {/* Font Awesome icons (free version)*/}
 
         <Seo
           pageTitle="About"

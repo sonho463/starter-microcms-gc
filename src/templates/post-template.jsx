@@ -27,10 +27,6 @@ export default function Home({ data, pageContext }) {
     ? data.microcmsPosts.eye_catch.url
     : "https://images.microcms-assets.io/assets/a20dd30d3f4d43d8814295dae8cee134/b6697014dafc49e29be207d11715c62a/default.png"
 
-  // const EyeCatch = styled.div`
-  // 	position: absolute;
-  // 	top: 0;	`
-
   const ArticleWrapper = styled.div`
     & img {
       width: 80%;
@@ -39,7 +35,6 @@ export default function Home({ data, pageContext }) {
 
   return (
     <>
-      {/* <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> */}
 
       <Seo />
 
@@ -49,8 +44,6 @@ export default function Home({ data, pageContext }) {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-          {/* Font Awesome icons (free version)*/}
 
           <Seo
             pagetitle="PostPage"
@@ -61,16 +54,12 @@ export default function Home({ data, pageContext }) {
             className="masthead"
             style={{ position: "relative", overflow: "hidden" }}
           >
-            {/* <EyeCatch> */}
-            {/* １つ目のpropsは必ずurl それ以外は順不同でOK */}
             <MicroCmsImage
-              // url={data.microcmsPosts.eye_catch.url}
               url={url}
               compress="auto=compress"
               format="auto=format"
               ar="ar=2:1&fit=crop&fp-y=0.5&fp-x=0.5"
             />
-            {/* </EyeCatch> */}
             <div className="overlay" />
             <div className="container">
               <div className="row">
@@ -91,8 +80,6 @@ export default function Home({ data, pageContext }) {
               </div>
             </div>
           </header>
-          {/* </Back> */}
-          {/* Post Content*/}
           <article>
             <div className="container">
               <div className="row">
@@ -114,7 +101,7 @@ export default function Home({ data, pageContext }) {
               to={`/blog/posts/${pageContext.previous.link}/`}
               rel="prev"
             >
-              　{pageContext.previous.title}　＞＞＞new
+              　{pageContext.previous.title}　＞＞＞ NEW
             </Link>
           )}
           {pageContext.next && (
@@ -123,7 +110,7 @@ export default function Home({ data, pageContext }) {
               to={`/blog/posts/${pageContext.next.link}/`}
               rel="next"
             >
-              old＜＜＜　{pageContext.next.title}
+              OLD ＜＜＜　{pageContext.next.title}
             </Link>
           )}
         </>

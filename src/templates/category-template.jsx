@@ -9,14 +9,10 @@ import CategoryList from "../components/category-list"
 
 import "../styles/global.css"
 
-export default function Home({ data, location, pageContext }) {
-  // 次のページ、前のページのパラメータ設定
-
-  // const catid = pageContext.catid
+const CategoryPage=({ data, location, pageContext })=> {
 
   return (
     <>
-      <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
       <Seo
         pageTitle={`CATEGORY: ${pageContext.catName}`}
@@ -54,7 +50,6 @@ export default function Home({ data, location, pageContext }) {
                     a: { options: { ignoreHref: true } },
                     img: { format: "skip" },
                   },
-                  // tags: { img: { format: "skip" } },
                   limits: { ellipsis: "...", maxInputLength: 200 },
                 })
                 const description = node.description || `${textData}...`
@@ -108,3 +103,5 @@ export const query = graphql`
     }
   }
 `
+
+export default CategoryPage

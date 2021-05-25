@@ -37,8 +37,6 @@ const Contact = location => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        {/* Font Awesome icons (free version)*/}
 
         <Seo
           pageTitle="Contact"
@@ -47,11 +45,7 @@ const Contact = location => {
         />
 
         <Layout>
-          <BackgroundImage
-            Tag="section"
-            {...bgImage}
-            preserveStackingContext
-          >
+          <BackgroundImage Tag="section" {...bgImage} preserveStackingContext>
             <header
               className="masthead"
               style={{ backgroundImage: 'url("assets/img/about-bg.jpg")' }}
@@ -71,12 +65,9 @@ const Contact = location => {
               </div>
             </header>
           </BackgroundImage>
-          {/* Main Content*/}
           <>
-            {/* Main Content*/}
             <div className="container">
               <div className="row">
-                {/* <div className="col-lg-8 col-md-10 mx-auto"> */}
                 <p>
                   Want to get in touch? Fill out the form below to send me a
                   message and I will get back to you as soon as possible!
@@ -95,7 +86,6 @@ const Contact = location => {
                     読み込んでいます…
                   </iframe>
                 </div>
-                {/* </div> */}
               </div>
             </div>
             <hr />
