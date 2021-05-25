@@ -38,9 +38,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
   `)
 
-  // createPageをedgesでまわして、それ以下のドット記法を書き直す
-  // 型定義をする
-  // contextでprevious,nextのtitleとlinkを送る
 
   if (blogresult.errors) {
     reporter.panicOnBuild(`GraphQLのクエリでエラーが発生しました`)
@@ -91,11 +88,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         catName: node.category,
         catSlug: node.categorySlug,
-        skip: 0,
-        limit: 100,
-        currentPage: 1, //現在のページ番号
-        isFirst: true, //最初のページ
-        isLast: true, //最後のページ
       },
     })
   })

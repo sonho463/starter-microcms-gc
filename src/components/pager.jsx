@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-export default function Pager(props) {
+const Pager = props => {
   const { currentPage, isLast, isFirst, prev, next } = props
 
   return (
@@ -14,7 +14,7 @@ export default function Pager(props) {
             ←　Old
           </Link>
         ) : (
-          <div　className="btn btn-secondary">Oldest</div>
+          <div className="btn btn-secondary">Oldest</div>
         )}
         {!isFirst ? (
           <Link
@@ -25,7 +25,7 @@ export default function Pager(props) {
             New →
           </Link>
         ) : (
-          <div　className="btn btn-secondary">Newest</div>
+          <div className="btn btn-secondary">Newest</div>
         )}
       </PageNation>
     </>
@@ -37,3 +37,5 @@ const PageNation = styled.div`
   display: flex;
   justify-content: space-between;
 `
+
+export default Pager

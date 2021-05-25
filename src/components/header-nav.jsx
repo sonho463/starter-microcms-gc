@@ -1,8 +1,18 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 import Menu from "./menu"
 
 const HeaderNav = () => {
+  const data = useStaticQuery(
+    graphql`
+		query {
+			microcmsConfig {
+				title
+			}
+		}
+    `
+  )
+
   return (
     <>
       <nav
@@ -14,7 +24,7 @@ const HeaderNav = () => {
         </div>
         <div className="container">
           <Link to="/" className="navbar-brand">
-            HorumonT'sBlog
+            {data.microcmsConfig.title}
           </Link>
 
           <div className="collapse navbar-collapse" id="navbarResponsive">

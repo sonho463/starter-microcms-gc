@@ -8,8 +8,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import "../styles/global.css"
 
-export default function About(location) {
-
+const About = location => {
   const { placeholderImage } = useStaticQuery(
     graphql`
       query {
@@ -42,11 +41,10 @@ export default function About(location) {
         {/* Font Awesome icons (free version)*/}
 
         <Seo
-					pageTitle="About"
-					pageDescription="これはアバウトページです"
-					pagepath={location.path}
-					
-				/>
+          pageTitle="About"
+          pageDescription="これはアバウトページです"
+          pagepath={location.path}
+        />
 
         <Layout>
           {/* Page Header*/}
@@ -105,3 +103,5 @@ export default function About(location) {
     </>
   )
 }
+
+export default About

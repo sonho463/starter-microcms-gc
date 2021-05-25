@@ -41,26 +41,25 @@ const CategoryList = () => {
 }
 
 const Heading = styled.h3`
-color:#fff;
-margin:0.3em;
+  color: #fff;
+  margin: 0.3em;
 `
 
 const CategoryMenu = styled.ul`
   display: flex;
   flex-wrap: wrap;
-	background-color:rgba(51,51,51,0.7);
-	a{
-		color: white;
-
-	}
-	p{
-		margin: 0;
-	}
+  background-color: rgba(51, 51, 51, 0.7);
+  a {
+    color: white;
+  }
+  p {
+    margin: 0;
+  }
   li {
-		line-height: 0.8;
-		list-style: none;
-		padding: 0 0.5em;
-		margin: 0;
+    line-height: 0.8;
+    list-style: none;
+    padding: 0 0.5em;
+    margin: 0;
   }
 `
 

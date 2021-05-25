@@ -8,6 +8,7 @@ import {
   faFacebookF,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons"
+
 const Footer = () => {
   return (
     <footer>

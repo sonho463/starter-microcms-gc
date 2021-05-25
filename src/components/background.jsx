@@ -20,7 +20,7 @@ const BgImage = ({ children }) => {
       }
     `
   )
-  // getImageでイメージデータを取得して
+  // getImageでイメージデータを取得
   const image = getImage(placeholderImage)
   // gatsby-background-imageで使えるように変換（ｖ３への対応）
   const bgImage = convertToBgImage(image)

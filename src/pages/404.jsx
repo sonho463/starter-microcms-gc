@@ -5,7 +5,7 @@ import Seo from "../components/seo"
 
 import "../styles/global.css"
 
-export default function page404({ location }) {
+const page404 = ({ location }) => {
   return (
     <Layout>
       <Seo pageTitle="ページが見つかりません" pagePath={location.pathname} />
@@ -14,8 +14,10 @@ export default function page404({ location }) {
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
               <div className="site-heading">
-                <h3 className="text-body">お探しのページがみつかりませんでした</h3>
-								<Link　to="/">ホームページへ</Link>
+                <h3 className="text-body">
+                  お探しのページがみつかりませんでした
+                </h3>
+                <Link to="/">ホームページへ</Link>
               </div>
             </div>
           </div>
@@ -24,3 +26,5 @@ export default function page404({ location }) {
     </Layout>
   )
 }
+
+export default page404

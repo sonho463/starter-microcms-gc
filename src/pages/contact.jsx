@@ -8,7 +8,7 @@ import Seo from "../components/seo"
 import Layout from "../components/layout"
 import "../styles/global.css"
 
-export default function Contact(location) {
+const Contact = location => {
   const { placeholderImage } = useStaticQuery(
     graphql`
       query {
@@ -47,10 +47,8 @@ export default function Contact(location) {
         />
 
         <Layout>
-          {/* Page Header*/}
           <BackgroundImage
             Tag="section"
-            // Spread bgImage into BackgroundImage:
             {...bgImage}
             preserveStackingContext
           >
@@ -88,7 +86,7 @@ export default function Contact(location) {
                   <iframe
                     src="https://docs.google.com/forms/d/e/1FAIpQLSdOPYA_XS9Ab7HBl1KcjEk3P3fDDGXj-uU6-CSUrPwPvDg2sw/viewform?embedded=true"
                     title="form"
-										width="100%"
+                    width="100%"
                     height="900"
                     frameborder="0"
                     marginheight="0"
@@ -107,3 +105,5 @@ export default function Contact(location) {
     </>
   )
 }
+
+export default Contact

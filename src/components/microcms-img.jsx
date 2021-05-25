@@ -1,23 +1,16 @@
 import React from "react"
 import styled from "styled-components"
 
-export default function MicroCmsImg(props) {
-  // imgタグを親要素に対して幅いっぱいに表示する
-	// レスポンシブ対応　top 50,left 50,transform でマイナス
+const MicroCmsImg = props => {
   const ImgWrapper = styled.img`
     width: 100%;
-		min-width:1200px;
-		position: absolute;
-		top: 50%;
+    min-width: 1200px;
+    position: absolute;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   `
-
-	const { url } = props // 画像のURL
-
-
-  // url以外のパラメータを１つの文字列型変数にセット
-	// eslint mapを使うときには、最後にreturnで値を返してください
+  const { url } = props
   let array = Object.values(props)
   let param = ""
   array.map(function (a) {
@@ -28,11 +21,13 @@ export default function MicroCmsImg(props) {
         param = `${param}&${a}`
       }
     }
-		return param
+    return param
   })
   return (
     <>
-			<ImgWrapper src={url + param} alt="" />
+      <ImgWrapper src={url + param} alt="" />
     </>
   )
 }
+
+export default MicroCmsImg

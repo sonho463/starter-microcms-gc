@@ -88,12 +88,10 @@ export default function Home({ data, location, pageContext }) {
 }
 
 export const query = graphql`
-  query($catSlug: String, $skip: Int!, $limit: Int!) {
+  query($catSlug: String) {
     allMicrocmsPosts(
       filter: { category: { categorySlug: { eq: $catSlug } } }
       sort: { order: DESC, fields: updatedAt }
-      skip: $skip
-      limit: $limit
     ) {
       edges {
         node {
