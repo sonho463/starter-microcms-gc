@@ -35,7 +35,6 @@ const CategoryPage=({ data, location, pageContext })=> {
           </header>
         </Back>
 
-        {/* Main Content*/}
         <div className="container">
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">

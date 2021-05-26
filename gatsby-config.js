@@ -11,7 +11,8 @@ module.exports = {
     description: `これは、GatsbyとmicroCMSで作ったブログです。`,
     lang: `ja`,
 		locale: `ja_jp`,
-		fbappid: `510836253386080`
+		fbappid: `510836253386080`,
+		
   },
   /* Your site config here */
   plugins: [
