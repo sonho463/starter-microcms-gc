@@ -10,8 +10,7 @@ const HeaderNav = () => {
 				title
 			}
 		}
-    `
-  )
+    `)
 
   return (
     <>
