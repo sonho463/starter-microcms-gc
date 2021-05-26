@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircle } from "@fortawesome/free-solid-svg-icons"
 import {
@@ -18,7 +17,7 @@ const Footer = () => {
             <ul className="list-inline d-flex justify-content-center">
               <li>
                 <SnsLink
-                  to="https://twitter.com/horumont"
+                  href="https://twitter.com/horumont"
                   className="list-inline-item"
                 >
                   <span className="fa-layers fa-fw">
@@ -34,7 +33,7 @@ const Footer = () => {
               </li>
               <li>
                 <SnsLink
-                  to="https://facebook.com/horumont"
+                  href="https://facebook.com/horumont"
                   className="list-inline-item"
                 >
                   <span className="fa-layers fa-fw">
@@ -50,7 +49,7 @@ const Footer = () => {
               </li>
               <li>
                 <SnsLink
-                  to="https://github.com/sonho463"
+                  href="https://github.com/sonho463"
                   className="list-inline-item"
                 >
                   <span className="fa-layers fa-fw">
@@ -75,7 +74,7 @@ const Footer = () => {
   )
 }
 
-const SnsLink = styled(Link)`
+const SnsLink = styled.a`
   margin: 20px;
 `
 

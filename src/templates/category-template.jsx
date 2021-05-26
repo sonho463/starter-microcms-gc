@@ -21,14 +21,14 @@ const CategoryPage=({ data, location, pageContext })=> {
       <Layout>
         <Back>
           <header className="masthead">
-            <div class="overlay" />
+            <div className="overlay" />
             <div className="container">
               <div className="row">
                 <div className="col-lg-8 col-md-10 mx-auto">
                   <div className="site-heading">
                     <h1>カテゴリ: {pageContext.catName}</h1>
                   </div>
-						<CategoryList />
+						<CategoryList key="node.id" />
                 </div>
               </div>
             </div>
@@ -53,21 +53,21 @@ const CategoryPage=({ data, location, pageContext })=> {
                 const description = node.description || `${textData}...`
 
                 return (
-                  <>
-                    <div key={node.id} className="post-preview">
+                  <div key={node.id}>
+                    <div className="post-preview">
                       <Link to={`/blog/posts/${node.link}`}>
                         <h2 className="post-title">{node.title}</h2>
                         <h3 className="post-subtitle">{description}</h3>
                       </Link>
                       <p className="post-meta">
                         Posted by
-                        <a href="#!">{author}</a>
+                        {author}
                         <br />
                         {node.updatedAtJP}
                       </p>
                     </div>
                     <hr />
-                  </>
+                  </div>
                 )
               })}
               <hr />

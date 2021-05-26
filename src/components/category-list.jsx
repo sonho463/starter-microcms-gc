@@ -26,14 +26,11 @@ const CategoryList = () => {
       <CategoryMenu>
         {data.allMicrocmsCategory.edges.map(({ node }) => {
           return (
-            <>
-              <li>
+              <li key={node.id}>
                 <Link to={`/cat/${node.categorySlug}`}>
-                  <p key={node.id}>{node.category}</p>
+                  <p >{node.category}</p>
                 </Link>
-              </li>
-            </>
-          )
+              </li>          )
         })}
       </CategoryMenu>
     </>
