@@ -1,3 +1,5 @@
+
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://over40webclub.connpass.com/event/212129/">
@@ -34,16 +36,22 @@
 			MICROCMS_API_KEY = "Your API-KEY"
 			MICROCMS_SERVICE_ID = "Your ServiceID"
 			```
-3. microCMSのデータベースを準備
+3. **microCMSのデータベースを準備**
    1. ３つのAPIを作成。
-|API    |形式    |エンドポイント|
-|-------|-------|------      |
-|記事API|リスト形式|posts      |
-|カテゴリAPI|リスト形式|category |
-|設定API|オブジェクト形式|config |
+		|API    |形式    |エンドポイント|
+		|-------|-------|------------|
+		|記事API|リスト形式|posts      |
+		|カテゴリAPI|リスト形式|category |
+		|設定API|オブジェクト形式|config |
+	2. 記事APIとカテゴリAPIのschemaをインポート
+       - /microcmsSampleFiles/microcmsSchemaフォルダ内
+	3. コンテンツもCSVからインポート
+         - 直接データを入力してもOK
+	4. microCMSのデータは次のことに注意
+      	1. 記事データは２つ、カテゴリデータは１つ以上のデータをいれておく
+      	2. １つ以上の記事データのアイキャッチ画像とauthorフィールドは空にしない
 
-
-1.  **Open the source code and start editing!**
+4.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 
