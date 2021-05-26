@@ -73,6 +73,7 @@ const Contact = location => {
                 </p>
 
                 <div className="container mx-auto">
+									{/* このdivタグの中に、googleFormの＜送信＞からコピーした<iframe>タグを貼り付けてください */}
                   <iframe
                     src="https://docs.google.com/forms/d/e/1FAIpQLSdOPYA_XS9Ab7HBl1KcjEk3P3fDDGXj-uU6-CSUrPwPvDg2sw/viewform?embedded=true"
                     title="form"
