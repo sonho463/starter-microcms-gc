@@ -5,17 +5,18 @@ import Menu from "./menu"
 const HeaderNav = () => {
   const data = useStaticQuery(
     graphql`
-		query {
-			microcmsConfig {
-				title
-			}
-		}
-    `)
+      query {
+        microcmsConfig {
+          title
+        }
+      }
+    `
+  )
 
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg navbar-light fixed-top"
+        className="navbar navbar-expand-lg navbar-light fixed-top d-flex"
         id="mainNav"
       >
         <div className="navbar-toggler">
