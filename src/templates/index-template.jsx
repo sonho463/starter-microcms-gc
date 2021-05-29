@@ -14,7 +14,6 @@ const Home = ({ data, pageContext }) => {
 
   return (
     <>
-
       <Seo />
 
       <Layout>
@@ -28,7 +27,7 @@ const Home = ({ data, pageContext }) => {
                     <h1>{pageContext.title}</h1>
                     <span className="subheading">{pageContext.subtitle}</span>
                   </div>
-                  <CategoryList key="node.id"/>
+                  <CategoryList key="node.id" />
                 </div>
               </div>
             </div>
@@ -49,7 +48,7 @@ const Home = ({ data, pageContext }) => {
               </div>
 
               {data.allMicrocmsPosts.edges.map(({ node }) => {
-                const author = node.author || "Dそんほんす"
+                const author = node.author || data.microcmsConfig.defaultAuthor
                 const article = node.article || "no article"
                 const textData = htmlToText(article, {
                   tags: {
@@ -126,6 +125,9 @@ export const query = graphql`
           }
         }
       }
+    }
+    microcmsConfig {
+      defaultAuthor
     }
   }
 `

@@ -10380,8 +10380,20 @@ header.masthead .post-heading .meta a {
   width: 36px;
   height: 30px;
   right: 10%;
-  top: 28px;
+  top: 40px;
 }
+
+@media only screen and (min-width: 600px) {
+	.bm-burger-button {
+		position: fixed;
+
+		width: 36px;
+		height: 30px;
+		right: 10%;
+		top: 16px;
+	}
+}
+
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
